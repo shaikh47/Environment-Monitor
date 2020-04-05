@@ -247,245 +247,181 @@ $(document).ready(function() {
                 }
             });
             //graph code goes here    
-
-            //gauge code goes here
-            var opts = {
-                angle: 0, // The span of the gauge arc
-                lineWidth: 0.1, // The line thickness
-                radiusScale: 0.89, // Relative radius
-                pointer: {
-                    length: 0.54, // // Relative to gauge radius
-                    strokeWidth: 0.053, // The thickness
-                    color: '#0da394' // Fill color
-                },
-                limitMax: false, // If false, max value increases automatically if value > maxValue
-                limitMin: false, // If true, the min value of the gauge will be fixed
-                colorStart: '#6FADCF', // Colors
-                colorStop: '#65fc00', // just experiment with them
-                strokeColor: '#2E5053', // to see which ones work best for you
-                generateGradient: true,
-                highDpiSupport: true, // High resolution support
-                staticLabels: {
-                    font: "12px sans-serif", // Specifies font
-                    labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100], // Print labels at these values
-                    color: "#48f542", // Optional: Label text color
-                    fractionDigits: 0 // Optional: Numerical precision. 0=round off.
-                },
-                staticZones: [{
-                        strokeStyle: "#00FF00",
-                        min: 0,
-                        max: 10
-                    },
-                    {
-                        strokeStyle: "#0000FF",
-                        min: 10,
-                        max: 30
-                    },
-                    {
-                        strokeStyle: "#00FFFF",
-                        min: 30,
-                        max: 50
-                    },
-                    {
-                        strokeStyle: "#FFDD00",
-                        min: 50,
-                        max: 80
-                    },
-                    {
-                        strokeStyle: "#FF0000",
-                        min: 80,
-                        max: 100
-                    }
-                ],
-
+            
+            
+            //gauge code
+            var data = [
+              {
+                type: "indicator",
+                mode: "gauge+number",
+                value: tempSound, // main data
+                title: { text: "SOUND", font: { size: 24 } },
+                //delta: { reference: 400, increasing: { color: "RebeccaPurple" } },
+                gauge: {
+                  axis: { range: [null, 100], tickwidth: 3, tickcolor: "#34eb4f" },
+                  bar: { color: "#212b2a" },
+                  bgcolor: "white",
+                  borderwidth: 3,
+                  bordercolor: "#00ffd9",  //gauge border
+                  steps: [
+                    { range: [0, 20], color: "#00ff5c" },
+                    { range: [20, 40], color: "#00de50" },
+                    { range: [40, 60], color: "#02cc4b" },
+                    { range: [60, 80], color: "#00b341" },
+                    { range: [80, 100], color: "#0e8238" }  
+                    
+                  ],
+                  threshold: {
+                    line: { color: "red", width: 4 },
+                    thickness: 0.75,
+                    value: 80
+                  }
+                }
+              }
+            ];
+        
+           var layout = {
+              width: 600,
+              height: 250,
+              margin: { t: 60, r: 25, l: 25, b: 25 },
+              paper_bgcolor: "#252b33",
+              font: { color: "cyan", family: "Arial" } //font design
             };
-            var target = document.getElementById('soundGauge'); // your canvas element
-            var gauge = new Gauge(target).setOptions(opts); // create gauge
-            gauge.maxValue = 100; // set max gauge value
-            gauge.setMinValue(0); // Prefer setter over gauge.minValue = 0
-            gauge.animationSpeed = 1; // set animation speed (32 is default value)
-            gauge.set(tempHumidity); // set actual value
-            //gauge code goes here
-            
-            
-            //gauge code goes here
-            var opts = {
-                angle: 0, // The span of the gauge arc
-                lineWidth: 0.1, // The line thickness
-                radiusScale: 0.89, // Relative radius
-                pointer: {
-                    length: 0.54, // // Relative to gauge radius
-                    strokeWidth: 0.053, // The thickness
-                    color: '#0da394' // Fill color
-                },
-                limitMax: false, // If false, max value increases automatically if value > maxValue
-                limitMin: false, // If true, the min value of the gauge will be fixed
-                colorStart: '#6FADCF', // Colors
-                colorStop: '#65fc00', // just experiment with them
-                strokeColor: '#2E5053', // to see which ones work best for you
-                generateGradient: true,
-                highDpiSupport: true, // High resolution support
-                staticLabels: {
-                    font: "12px sans-serif", // Specifies font
-                    labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100], // Print labels at these values
-                    color: "#48f542", // Optional: Label text color
-                    fractionDigits: 0 // Optional: Numerical precision. 0=round off.
-                },
-                staticZones: [{
-                        strokeStyle: "#00FF00",
-                        min: 0,
-                        max: 10
-                    },
-                    {
-                        strokeStyle: "#0000FF",
-                        min: 10,
-                        max: 30
-                    },
-                    {
-                        strokeStyle: "#00FFFF",
-                        min: 30,
-                        max: 50
-                    },
-                    {
-                        strokeStyle: "#FFDD00",
-                        min: 50,
-                        max: 80
-                    },
-                    {
-                        strokeStyle: "#FF0000",
-                        min: 80,
-                        max: 100
-                    }
-                ],
 
+            Plotly.newPlot('soundGauge', data, layout);  
+           //gauge code
+            
+            
+            //gauge code
+            var data = [
+              {
+                type: "indicator",
+                mode: "gauge+number",
+                value: tempTemperature, // main data
+                title: { text: "TEMPERATURE", font: { size: 24 } },
+                //delta: { reference: 400, increasing: { color: "RebeccaPurple" } },
+                gauge: {
+                  axis: { range: [null, 100], tickwidth: 3, tickcolor: "#34eb4f" },
+                  bar: { color: "darkblue" },
+                  bgcolor: "white",
+                  borderwidth: 2,
+                  bordercolor: "#34eb4f",  //gauge border
+                  steps: [
+                    { range: [0, 20], color: "#00ff5c" },
+                    { range: [20, 40], color: "#00de50" },
+                    { range: [40, 60], color: "#02cc4b" },
+                    { range: [60, 80], color: "#00b341" },
+                    { range: [80, 100], color: "#0e8238" }
+                    
+                  ],
+                  threshold: {
+                    line: { color: "red", width: 4 },
+                    thickness: 0.75,
+                    value: 100
+                  }
+                }
+              }
+            ];
+        
+           var layout = {
+              width: 600,
+              height: 250,
+              margin: { t: 60, r: 25, l: 25, b: 25 },
+              paper_bgcolor: "#252b33",
+              font: { color: "cyan", family: "Arial" } //font design
             };
-            var target = document.getElementById('humidityGauge'); // your canvas element
-            var gauge = new Gauge(target).setOptions(opts); // create gauge
-            gauge.maxValue = 100; // set max gauge value
-            gauge.setMinValue(0); // Prefer setter over gauge.minValue = 0
-            gauge.animationSpeed = 1; // set animation speed (32 is default value)
-            gauge.set(tempSound); // set actual value
-            //gauge code goes here
-            
-            
-            //gauge code goes here
-            var opts = {
-                angle: 0, // The span of the gauge arc
-                lineWidth: 0.1, // The line thickness
-                radiusScale: 0.89, // Relative radius
-                pointer: {
-                    length: 0.54, // // Relative to gauge radius
-                    strokeWidth: 0.053, // The thickness
-                    color: '#0da394' // Fill color
-                },
-                limitMax: false, // If false, max value increases automatically if value > maxValue
-                limitMin: false, // If true, the min value of the gauge will be fixed
-                colorStart: '#6FADCF', // Colors
-                colorStop: '#65fc00', // just experiment with them
-                strokeColor: '#2E5053', // to see which ones work best for you
-                generateGradient: true,
-                highDpiSupport: true, // High resolution support
-                staticLabels: {
-                    font: "12px sans-serif", // Specifies font
-                    labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 110], // Print labels at these values
-                    color: "#48f542", // Optional: Label text color
-                    fractionDigits: 0 // Optional: Numerical precision. 0=round off.
-                },
-                staticZones: [{
-                        strokeStyle: "#00FF00",
-                        min: 0,
-                        max: 10
-                    },
-                    {
-                        strokeStyle: "#0000FF",
-                        min: 10,
-                        max: 30
-                    },
-                    {
-                        strokeStyle: "#00FFFF",
-                        min: 30,
-                        max: 50
-                    },
-                    {
-                        strokeStyle: "#FFDD00",
-                        min: 50,
-                        max: 80
-                    },
-                    {
-                        strokeStyle: "#FF0000",
-                        min: 80,
-                        max: 110
-                    }
-                ],
 
+            Plotly.newPlot('tempGauge', data, layout);  
+           //gauge code
+            
+            
+            
+            //gauge code
+            var data = [
+              {
+                type: "indicator",
+                mode: "gauge+number",
+                value: tempHumidity, // main data
+                title: { text: "HUMIDITY", font: { size: 24 } },
+                //delta: { reference: 400, increasing: { color: "RebeccaPurple" } },
+                gauge: {
+                  axis: { range: [null, 100], tickwidth: 3, tickcolor: "#34eb4f" },
+                  bar: { color: "darkblue" },
+                  bgcolor: "white",
+                  borderwidth: 2,
+                  bordercolor: "#34eb4f",  //gauge border
+                  steps: [
+                    { range: [0, 20], color: "#00ff5c" },
+                    { range: [20, 40], color: "#00de50" },
+                    { range: [40, 60], color: "#02cc4b" },
+                    { range: [60, 80], color: "#00b341" },
+                    { range: [80, 100], color: "#0e8238" }
+                    
+                  ],
+                  threshold: {
+                    line: { color: "red", width: 4 },
+                    thickness: 0.75,
+                    value: 100
+                  }
+                }
+              }
+            ];
+        
+           var layout = {
+              width: 600,
+              height: 250,
+              margin: { t: 60, r: 25, l: 25, b: 25 },
+              paper_bgcolor: "#252b33",
+              font: { color: "cyan", family: "Arial" } //font design
             };
-            var target = document.getElementById('pressureGauge'); // your canvas element
-            var gauge = new Gauge(target).setOptions(opts); // create gauge
-            gauge.maxValue = 110; // set max gauge value
-            gauge.setMinValue(0); // Prefer setter over gauge.minValue = 0
-            gauge.animationSpeed = 1; // set animation speed (32 is default value)
-            gauge.set(tempAirPressure/1000); // set actual value
-            //gauge code goes here
-            
-            
-            //gauge code goes here
-            var opts = {
-                angle: 0, // The span of the gauge arc
-                lineWidth: 0.1, // The line thickness
-                radiusScale: 0.89, // Relative radius
-                pointer: {
-                    length: 0.54, // // Relative to gauge radius
-                    strokeWidth: 0.053, // The thickness
-                    color: '#0da394' // Fill color
-                },
-                limitMax: false, // If false, max value increases automatically if value > maxValue
-                limitMin: false, // If true, the min value of the gauge will be fixed
-                colorStart: '#6FADCF', // Colors
-                colorStop: '#65fc00', // just experiment with them
-                strokeColor: '#2E5053', // to see which ones work best for you
-                generateGradient: true,
-                highDpiSupport: true, // High resolution support
-                staticLabels: {
-                    font: "12px sans-serif", // Specifies font
-                    labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100], // Print labels at these values
-                    color: "#48f542", // Optional: Label text color
-                    fractionDigits: 0 // Optional: Numerical precision. 0=round off.
-                },
-                staticZones: [{
-                        strokeStyle: "#00FF00",
-                        min: 0,
-                        max: 10
-                    },
-                    {
-                        strokeStyle: "#0000FF",
-                        min: 10,
-                        max: 30
-                    },
-                    {
-                        strokeStyle: "#00FFFF",
-                        min: 30,
-                        max: 50
-                    },
-                    {
-                        strokeStyle: "#FFDD00",
-                        min: 50,
-                        max: 80
-                    },
-                    {
-                        strokeStyle: "#FF0000",
-                        min: 80,
-                        max: 100
-                    }
-                ],
 
+            Plotly.newPlot('humGauge', data, layout);  
+           //gauge code
+            
+            
+            
+            //gauge code
+            var data = [
+              {
+                type: "indicator",
+                mode: "gauge+number",
+                value: tempAirPressure/100.0, // main data
+                title: { text: "AIR PRESSURE", font: { size: 24 } },
+                //delta: { reference: 400, increasing: { color: "RebeccaPurple" } },
+                gauge: {
+                  axis: { range: [950, 1100], tickwidth: 3, tickcolor: "#34eb4f" },
+                  bar: { color: "darkblue" },
+                  bgcolor: "white",
+                  borderwidth: 2,
+                  bordercolor: "#34eb4f",  //gauge border
+                  steps: [
+                    { range: [0, 980], color: "#00ff5c" },
+                    { range: [980, 1000], color: "#00de50" },
+                    { range: [1000, 1020], color: "#02cc4b" },
+                    { range: [1020, 1040], color: "#00b341" },
+                    { range: [1040, 1100], color: "#0e8238" }
+                    
+                  ],
+                  threshold: {
+                    line: { color: "red", width: 4 },
+                    thickness: 0.75,
+                    value: 100
+                  }
+                }
+              }
+            ];
+        
+           var layout = {
+              width: 600,
+              height: 250,
+              margin: { t: 60, r: 25, l: 25, b: 25 },
+              paper_bgcolor: "#252b33",
+              font: { color: "cyan", family: "Arial" } //font design
             };
-            var target = document.getElementById('temperatureGauge'); // your canvas element
-            var gauge = new Gauge(target).setOptions(opts); // create gauge
-            gauge.maxValue = 100; // set max gauge value
-            gauge.setMinValue(0); // Prefer setter over gauge.minValue = 0
-            gauge.animationSpeed = 1; // set animation speed (32 is default value)
-            gauge.set(tempTemperature); // set actual value
-            //gauge code goes here
+
+            Plotly.newPlot('airGauge', data, layout);  
+           //gauge code
+
         }
 
     });

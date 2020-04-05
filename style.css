@@ -76,11 +76,19 @@ p{
     height: auto;
     margin-top: 10px;
 }
-.bottom{
+.gaugeBot{
     float: left;
     width:100%;
     height: auto;
+    margin-bottom: 80px;
+    border: solid;
+}
+.gaugeTop{
+   float: left;
+    width:100%;
+    height: auto;
     margin-top: 10px;
+    border: solid; 
 }
 .bot{
     float: left;

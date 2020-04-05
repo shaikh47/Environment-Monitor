@@ -9,6 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-database.js"></script>
     <script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script> 
     <script src="liveStat.js"></script>
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -46,11 +47,13 @@
     </div>
 
 
-    <div class="bottom">
-        <canvas id="soundGauge"></canvas>
-        <canvas id="humidityGauge"></canvas>
-        <canvas id="temperatureGauge"></canvas>
-        <canvas id="pressureGauge"></canvas>
+    <div class="gaugeTop">
+        <div id="soundGauge" style="width:45%; float: left; "></div>
+        <div id="tempGauge" style="width:45%; float: right; "></div>
+    </div>
+    <div class="gaugeBot">
+        <div id="humGauge" style="width:45%; float: left;"></div>
+        <div id="airGauge" style="width:45%; float: right;"></div>
     </div>
 
    
