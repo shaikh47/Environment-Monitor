@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>IOT SOUND MONITOR</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-database.js"></script>
+    <script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+    <script src="liveStat.js"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="main">
+           <ul>
+               <li><a href="homepage.html">HOME</a></li>
+               <li class="active"><a href="liveStat.html">LIVE DATA</a></li>
+               <li><a href="traffic.html">TRAFFIC</a></li>
+               <li><a href="statGraphPage.html">DAILY STATS</a></li>
+               <li><a href="alert.html">SOUND ALERT</a></li>
+               <li><a href="#">ABOUT</a></li>
+           </ul>
+        </div>
+    </header>
+
+    <div class="top">
+            <div style="width:45%; float: left; padding: 2px; border: solid black 1px; padding: 2px">
+                <canvas id="chartOfHumidity" width="400px" height="180px"></canvas>
+            </div>
+            <div style="width:45%; float: right; padding: 2px; border: solid black 1px; padding: 2px">
+                <canvas id="chartOfTemperature" width="400px" height="180px"></canvas>
+            </div>
+    </div>
+    
+    <div class="middle">
+            <div style="width:45%; float: right; padding: 2px; border: solid black 1px; padding: 2px">
+                <canvas id="chartOfSound" width="400px" height="180px"></canvas>
+            </div>
+            <div style="width:45%; float: left; padding: 2px; border: solid black 1px; padding: 2px">
+                <canvas id="chartOfAirPressure" width="400px" height="180px"></canvas>
+            </div>
+    </div>
+
+
+    <div class="bottom">
+        <canvas id="soundGauge"></canvas>
+        <canvas id="humidityGauge"></canvas>
+        <canvas id="temperatureGauge"></canvas>
+        <canvas id="pressureGauge"></canvas>
+    </div>
+
+   
+    <div class="textStyle" style="align:center; padding:10px">
+        <h2 class="fullString"></h2>
+        <h2 class="date"></h2>
+        <h2 class="day"></h2>
+        <h2 class="time"></h2>
+        <h2 class="tempOne"></h2>
+        <h2 class="pressure"></h2>
+        <h2 class="altitude"></h2>
+        <h2 class="humidity"></h2>
+        <h2 class="tempTwo"></h2>
+        <h2 class="sound"></h2>
+        <h1 class="alert"></h1>
+    </div>
+
+
+</body>
+
+</html>

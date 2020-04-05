@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME PAGE</title>
+    <link rel="stylesheet" href="homepage.css" />
+     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-database.js"></script>
+    <script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+    <script src="homepage.js"></script>
+</head>
+<body>
+    <header>
+        <div class="main">
+          <div class="logo">
+              <p>IOT</p>
+          </div>
+           <ul>
+               <li class="active"><a href="#">HOME</a></li>
+               <li><a href="liveStat.html">LIVE DATA</a></li>
+               <li><a href="traffic.html">TRAFFIC</a></li>
+               <li><a href="statGraphPage.html">DAILY STATS</a></li>
+               <li><a href="alert.html">SOUND ALERT</a></li>
+               <li><a href="#">ABOUT</a></li>
+           </ul>
+        </div>
+            
+        <div class="top">
+            <div style="width:45%; float: right; padding: 2px; height: auto">
+                <canvas id="myCanvas" width="300" height="250"/>
+            </div>
+            <div class="textDisplay" style="width:45%; float: left; height: auto">
+                <h4 class="date"></h4>
+                <h4 class="day"></h4>
+                <h4 class="time"></h4>
+                <h4 class="tempOne"></h4>
+                <h4 class="pressure"></h4>
+                <h4 class="altitude"></h4>
+                <h4 class="humidity"></h4>
+                <h4 class="tempTwo"></h4>
+                <h4 class="sound"></h4>
+                <h4 class="alert"></h4>
+            </div>    
+        </div>    
+    </header>
+    
+  
+   
+    
+</body>
+</html>

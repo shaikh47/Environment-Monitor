@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>IOT SOUND MONITOR</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-database.js"></script>
+    <script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+    <script src="script_multiple_child_with_unique_key.js"></script>
+    <link rel="stylesheet" href="statStyle.css" />
+</head>
+
+<body>
+    
+    <header>
+        <div class="main">
+           <ul>
+               <li><a href="homepage.html">HOME</a></li>
+               <li><a href="liveStat.html">LIVE DATA</a></li>
+               <li><a href="traffic.html">TRAFFIC</a></li>
+               <li class="active"><a href="statGraphPage.html">DAILY STATS</a></li>
+               <li><a href="alert.html">SOUND ALERT</a></li>
+               <li><a href="#">ABOUT</a></li>
+           </ul>
+        </div>
+    </header>
+
+    <div class="textStyle" style="align:center; padding:10px">
+        
+        
+        <div class="data"></div>
+    </div>
+    
+    <div style="width:100%; float: right; padding: 2px; border: solid black 1px; padding: 2px">
+         <canvas id="foo" width="400px" height="155px"></canvas>
+    </div>
+
+
+</body>
+
+</html>

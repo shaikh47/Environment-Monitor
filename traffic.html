@@ -1,0 +1,226 @@
+<html>
+<head>
+  <title>traffic</title>
+  <style>
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: Century Gothic;
+    }
+
+    #demo{
+      font-size: 30px;
+      text-align: center; 
+      color: aqua;
+    }
+      body{
+      background-color: #252b33;
+    }
+    .str{
+      font-size: 40px;
+      text-align: center;
+      color: aqua
+    }
+    .mainContent{
+      text-align: center;
+      background-color: #252b33;
+      margin: 0px;
+      float: left;
+      width:100%;
+      height: auto;
+      margin-top: 10px;
+    }
+    ul{
+    list-style-position: none;
+    float: right;  
+    }
+    ul li{
+        display: inline-block;
+    }
+    ul li a{
+        text-decoration: none;
+        color: white;
+        padding: 5px 20px;
+        border: 1px solid transparent;
+        margin-top: 20px; 
+        transition: 0.6s ease;
+    }
+    ul li a:hover{
+        background-color: white;
+        color: black;
+    }
+    .logo{
+        margin-top: 20px;
+        font-family: fantasy;
+        font-size: 30px;
+        color: aliceblue;
+        float: left;
+    }
+    ul li.active a{
+        background-color: #fff;
+        color: #000;
+    }
+      .links{
+          margin-top: 20px;
+          font-size: 22px;
+      }
+
+
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-database.js"></script>
+    <script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+</head>
+
+<body onload="drawRect();">
+<header>
+        <div class="main">
+          <div class="logo">
+              <p>IOT</p>
+          </div>
+           <ul class="links">
+               <li><a href="homepage.html">HOME</a></li>
+               <li><a href="liveStat.html">LIVE DATA</a></li>
+               <li class="active"><a href="traffic.html">TRAFFIC</a></li>
+               <li><a href="statGraphPage.html">DAILY STATS</a></li>
+               <li><a href="alert.html">SOUND ALERT</a></li>
+               <li><a href="#">ABOUT</a></li>
+           </ul>
+        </div>
+    </header>
+<div class="mainContent">
+        <p class="str"></p>
+        <p id="demo"></p>
+    <div style="text-align:center">
+        <canvas id="myCanvas" width="400" height="600" style="border:1px solid #d3d3d3;">
+    </div>
+</div>
+
+<script>
+var firebaseConfig = { //firebase cdn code
+    apiKey: "AIzaSyDLEco45i2BszWHJb67eAc7qx8OZ-d9vC8",
+    authDomain: "iot-webapplication-47.firebaseapp.com",
+    databaseURL: "https://iot-webapplication-47.firebaseio.com",
+    projectId: "iot-webapplication-47",
+    storageBucket: "iot-webapplication-47.appspot.com",
+    messagingSenderId: "639567912933",
+    appId: "1:639567912933:web:e8140919d9641904e2590c"
+};
+firebase.initializeApp(firebaseConfig);
+
+var d = 1;
+var flag=0;
+var myVar = setInterval(myTimer, 1000);
+var sound;
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+$(document).ready(function() {
+    var database = firebase.database();
+    var fullStringData;
+    var str1 = "default";
+    var str2 = "off";
+    var from = 0;
+    var i;
+    var variable = [];
+    var tempHumidity, tempTime, tempTemperature, tempSound, tempAirPressure;
+
+
+    var oldTime = "sd";
+
+    database.ref('Variable').on("value", function(snap) { //here change it to destination name in database
+        fullStringData = snap.val().Value; //here change it to destination name in database
+        
+        var len=fullStringData.length;
+        sound=parseInt(fullStringData.substring(len-7, len-2));
+        $(".str").text("SOUND LEVEL(LIMIT 40): " + sound +" dB");
+    });
+});
+
+function myTimer() {
+  document.getElementById("demo").innerHTML = "COUNTDOWN TIMER: "+d;
+  if(flag==3 && sound>40){
+    d=10;
+  }
+
+  if(d==0){
+    if(flag==0){
+      d=10;
+      ctx.beginPath();
+      ctx.arc(195, 100, 50, 0, 2 * Math.PI);
+      ctx.fillStyle="green";
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(195, 250, 50, 0, 2 * Math.PI);
+      ctx.fillStyle="grey";
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(195, 400, 50, 0, 2 * Math.PI);
+      ctx.fillStyle="grey";
+      ctx.fill();
+      flag=1;
+    }
+    else if(flag==1){
+      d=3;
+      ctx.beginPath();
+      ctx.arc(195, 100, 50, 0, 2 * Math.PI);
+      ctx.fillStyle="grey";
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(195, 250, 50, 0, 2 * Math.PI);
+      ctx.fillStyle="yellow";
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(195, 400, 50, 0, 2 * Math.PI);
+      ctx.fillStyle="grey";
+      ctx.fill();
+      flag=2;
+    }
+    else if(flag==2){
+      d=10;
+      ctx.beginPath();
+      ctx.arc(195, 100, 50, 0, 2 * Math.PI);
+      ctx.fillStyle="grey";
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(195, 250, 50, 0, 2 * Math.PI);
+      ctx.fillStyle="grey";
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(195, 400, 50, 0, 2 * Math.PI);
+      ctx.fillStyle="red";
+      ctx.fill();
+      flag=3;
+    }
+    else if(flag==3){
+      d=3;
+      ctx.beginPath();
+      ctx.arc(195, 100, 50, 0, 2 * Math.PI);
+      ctx.fillStyle="grey";
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(195, 250, 50, 0, 2 * Math.PI);
+      ctx.fillStyle="yellow";
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(195, 400, 50, 0, 2 * Math.PI);
+      ctx.fillStyle="grey";
+      ctx.fill();
+      flag=0;
+    }
+  }
+  d--;
+}
+
+function drawRect(){
+    ctx.beginPath();
+    ctx.rect(120, 20, 150, 500);
+    ctx.fillStyle="black";
+    ctx.fill();
+}
+</script>
+
+</body>
+</html>
