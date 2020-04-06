@@ -255,7 +255,7 @@ $(document).ready(function() {
                 type: "indicator",
                 mode: "gauge+number",
                 value: tempSound, // main data
-                title: { text: "SOUND", font: { size: 24 } },
+                title: { text: "SOUND(dB)", font: { size: 24 } },
                 //delta: { reference: 400, increasing: { color: "RebeccaPurple" } },
                 gauge: {
                   axis: { range: [null, 100], tickwidth: 3, tickcolor: "#34eb4f" },
@@ -298,7 +298,7 @@ $(document).ready(function() {
                 type: "indicator",
                 mode: "gauge+number",
                 value: tempTemperature, // main data
-                title: { text: "TEMPERATURE", font: { size: 24 } },
+                title: { text: "TEMPERATURE(°C)", font: { size: 24 } },
                 //delta: { reference: 400, increasing: { color: "RebeccaPurple" } },
                 gauge: {
                   axis: { range: [null, 100], tickwidth: 3, tickcolor: "#34eb4f" },
@@ -342,7 +342,7 @@ $(document).ready(function() {
                 type: "indicator",
                 mode: "gauge+number",
                 value: tempHumidity, // main data
-                title: { text: "HUMIDITY", font: { size: 24 } },
+                title: { text: "HUMIDITY(%)", font: { size: 24 } },
                 //delta: { reference: 400, increasing: { color: "RebeccaPurple" } },
                 gauge: {
                   axis: { range: [null, 100], tickwidth: 3, tickcolor: "#34eb4f" },
@@ -386,7 +386,7 @@ $(document).ready(function() {
                 type: "indicator",
                 mode: "gauge+number",
                 value: tempAirPressure/100.0, // main data
-                title: { text: "AIR PRESSURE", font: { size: 24 } },
+                title: { text: "AIR PRESSURE(hPa)", font: { size: 24 } },
                 //delta: { reference: 400, increasing: { color: "RebeccaPurple" } },
                 gauge: {
                   axis: { range: [950, 1100], tickwidth: 3, tickcolor: "#34eb4f" },
