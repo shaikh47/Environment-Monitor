@@ -35,6 +35,77 @@ var rootRef=firebase.database().ref().child("maxSoundData");
         //console.log(name);
         maxValues.push(childData);
         //$(".max").text("max: " + maxValues);
+        //
+        var ctx = document.getElementById('foo').getContext('2d');
+            var myChart = new Chart(ctx, { //change should go here
+                type: 'line',
+                data: {
+                    labels: timeValues, //x axis value
+                    datasets: [{
+                        label: 'min values', //y axis value's label
+                        data: minValues, //y axis values [can be put an array]
+                        backgroundColor: [
+                               //color of min curve
+                            'rgba(3, 252, 90, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    },
+                        {
+                           label: 'max values', //y axis value's label
+                        data: maxValues, //y axis values [can be put an array]
+                        backgroundColor: [
+                               //color of max curve
+                            'rgba(255, 99, 132, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1 
+                        },
+                        {
+                           label: 'avg values', //y axis value's label
+                        data: avgValues, //y axis values [can be put an array]
+                        backgroundColor: [
+                                //color of avg curve
+                            'rgba(3, 240, 252, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1 
+                        }       
+                              ]
+                },
+                options: {
+                    animation: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        //
     });  
     
 var rootRef=firebase.database().ref().child("minSoundData");
@@ -43,7 +114,77 @@ var rootRef=firebase.database().ref().child("minSoundData");
         //console.log(name);
         minValues.push(childData);
        // $(".min").text("min: " + minValues);
-        
+        //
+        var ctx = document.getElementById('foo').getContext('2d');
+            var myChart = new Chart(ctx, { //change should go here
+                type: 'line',
+                data: {
+                    labels: timeValues, //x axis value
+                    datasets: [{
+                        label: 'min values', //y axis value's label
+                        data: minValues, //y axis values [can be put an array]
+                        backgroundColor: [
+                               //color of min curve
+                            'rgba(3, 252, 90, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    },
+                        {
+                           label: 'max values', //y axis value's label
+                        data: maxValues, //y axis values [can be put an array]
+                        backgroundColor: [
+                              //color of max curve
+                            'rgba(255, 99, 132, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1 
+                        },
+                        {
+                           label: 'avg values', //y axis value's label
+                        data: avgValues, //y axis values [can be put an array]
+                        backgroundColor: [
+                              //color of avg curve
+                            'rgba(3, 240, 252, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1 
+                        }       
+                              ]
+                },
+                options: {
+                    animation: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        //
     });  
 var rootRef=firebase.database().ref().child("avgSoundData");
     rootRef.on("child_added", snap => {
@@ -61,8 +202,8 @@ var rootRef=firebase.database().ref().child("avgSoundData");
                         label: 'min values', //y axis value's label
                         data: minValues, //y axis values [can be put an array]
                         backgroundColor: [
-                            'rgba(251, 251, 23, 0.2)',   //color of min curve
-                            'rgba(255, 99, 132, 0.2)'
+                               //color of min curve
+                            'rgba(3, 252, 90, 0.2)'
                         ],
                         borderColor: [
                             'rgba(54, 162, 235, 1)',
@@ -78,7 +219,7 @@ var rootRef=firebase.database().ref().child("avgSoundData");
                            label: 'max values', //y axis value's label
                         data: maxValues, //y axis values [can be put an array]
                         backgroundColor: [
-                            'rgba(251, 251, 23, 0.2)',   //color of max curve
+                           //color of max curve
                             'rgba(255, 99, 132, 0.2)'
                         ],
                         borderColor: [
@@ -95,8 +236,8 @@ var rootRef=firebase.database().ref().child("avgSoundData");
                            label: 'avg values', //y axis value's label
                         data: avgValues, //y axis values [can be put an array]
                         backgroundColor: [
-                            'rgba(251, 251, 23, 0.2)',    //color of avg curve
-                            'rgba(255, 99, 132, 0.2)'
+                            //color of avg curve
+                            'rgba(3, 240, 252, 0.2)'
                         ],
                         borderColor: [
                             'rgba(54, 162, 235, 1)',

@@ -1,0 +1,102 @@
+<html>
+<head>
+  <title>ABOUT</title>
+  <style>
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: Century Gothic;
+    }
+
+    #demo{
+      font-size: 30px;
+      text-align: center; 
+      color: aqua;
+    }
+      body{
+      background-color: #252b33;
+    }
+    .str{
+      font-size: 40px;
+      text-align: center;
+      color: aqua
+    }
+    .mainContent{
+      text-align: center;
+      background-color: #252b33;
+      margin: 0px;
+      float: left;
+      width:100%;
+      height: auto;
+      margin-top: 100px;
+      color: aquamarine;
+    }
+    ul{
+    list-style-position: none;
+    float: right;  
+    }
+    ul li{
+        display: inline-block;
+    }
+    ul li a{
+        text-decoration: none;
+        color: white;
+        padding: 5px 20px;
+        border: 1px solid transparent;
+        margin-top: 20px; 
+        transition: 0.6s ease;
+    }
+    ul li a:hover{
+        background-color: white;
+        color: black;
+    }
+    .logo{
+        margin-top: 20px;
+        font-family: fantasy;
+        font-size: 30px;
+        color: aliceblue;
+        float: left;
+    }
+    ul li.active a{
+        background-color: #fff;
+        color: #000;
+    }
+      .links{
+          margin-top: 20px;
+          font-size: 22px;
+      }
+   
+
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-database.js"></script>
+    <script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+</head>
+
+<body>
+<header>
+        <div class="main">
+          <div class="logo">
+              <p>IOT</p>
+          </div>
+           <ul class="links">
+               <li><a href="homepage.html">HOME</a></li>
+               <li><a href="liveStat.html">LIVE DATA</a></li>
+               <li><a href="traffic.html">TRAFFIC</a></li>
+               <li><a href="statGraphPage.html">DAILY STATS</a></li>
+               <li><a href="alert.html">SOUND ALERT</a></li>
+               <li class="active"><a href="about.html">ABOUT</a></li>
+           </ul>
+        </div>
+    </header>
+    
+    <div class="mainContent">
+        <h2>SYED MD OMAR SHAIKH</h2>
+        <h2>171-15-8699</h2>
+    </div>
+
+
+</body>
+</html>
