@@ -9,8 +9,8 @@ IOT based web project to monitor various environment data. The project consists 
 5. Temperature, Humidity, Air-Pressure can be monitored in real time.
 
 
-## Webpage: https://shaikh47.github.io/Environment-Monitor/
-## Video Demo: https://drive.google.com/file/d/1-hi5is2ZShqndMYyRtSFng3Wv95ed1cH/view?usp=sharing
+#### Webpage: https://shaikh47.github.io/Environment-Monitor/
+#### Video Demo: https://drive.google.com/file/d/1-hi5is2ZShqndMYyRtSFng3Wv95ed1cH/view?usp=sharing
 
 ## Hardware
 
