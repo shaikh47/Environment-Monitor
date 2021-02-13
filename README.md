@@ -15,3 +15,27 @@ IOT based web project to monitor various environment data. The project consists 
 
 ## Demo of the Webpage
 
+Homepage of the IOT website. Sensor datas are displayed in text form, and Temperature, Humidity data also displayed graphically.
+
+![alt text](https://github.com/shaikh47/Environment-Monitor/blob/master/screenshot/home%20page.PNG)
+
+
+Live Data Monitoring using realtime line chart
+
+![alt text](https://github.com/shaikh47/Environment-Monitor/blob/master/screenshot/live%20stat.PNG)
+
+Live data monitoring using realtime Gauge
+
+![alt text](https://github.com/shaikh47/Environment-Monitor/blob/master/screenshot/live%20stat%20gauge.PNG)
+
+Average, Minimum and Maximum recorded Sound Data
+
+![alt text](https://github.com/shaikh47/Environment-Monitor/blob/master/screenshot/dailystats.PNG)
+
+Traffic Light Simulation Page
+
+![alt text](https://github.com/shaikh47/Environment-Monitor/blob/master/screenshot/traffic.PNG)
+
+Alert Page
+
+![alt text](https://github.com/shaikh47/Environment-Monitor/blob/master/screenshot/alert.PNG)
