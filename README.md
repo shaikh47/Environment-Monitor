@@ -8,6 +8,10 @@ IOT based web project to monitor various environment data. The project consists 
 4. Live alert implemented, which can be used in classrooms or libraries. Basically an error can be generated if the sound reaches a particular threshold.
 5. Temperature, Humidity, Air-Pressure can be monitored in real time.
 
+
+Webpage: https://shaikh47.github.io/Environment-Monitor/
+Video Demo: https://drive.google.com/file/d/1-hi5is2ZShqndMYyRtSFng3Wv95ed1cH/view?usp=sharing
+
 ## Hardware
 
 ![alt text](https://github.com/shaikh47/Environment-Monitor/blob/master/screenshot/hardware.jpg)
