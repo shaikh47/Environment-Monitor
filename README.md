@@ -1,4 +1,4 @@
-# Environment-Monitor
+# IOT based Environment Monitoring System
 IOT based web project to monitor various environment data. The project consists of a hardware and a software part. Hardware part contains a bunch of sensors to monitor the environment, an arduino microcontroller has been used to process the sensor datas. And a nodeMCU acts as a network device to upload the information to the Firebase database. The software part has an IOT website, with which the information is represented both textually and graphically.
 
 ## Features
